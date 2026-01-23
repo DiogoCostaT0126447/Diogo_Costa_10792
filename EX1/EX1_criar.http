@@ -1,18 +1,17 @@
 POST http://localhost:2525/imposters
 
-{
-  "port": 4545,
+{"port": 4546,
   "protocol": "http",
   "stubs": [{
     "responses": [
-      { "is": { "statusCode": 400 }}
+      { "is": { "statusCode": 200 , "body":{"marcas":["Toyota", "Audi", "Ford", "Volvo", "Honda"]} }}
     ],
     "predicates": [{
       "and": [
         {
           "equals": {
-            "path": "/ex0",
-            "method": "POST",
+            "path": "/api/marcas",
+            "method": "GET",
             "headers": { "Content-Type": "application/json" }
           }
         },
