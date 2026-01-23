@@ -1,1 +1,12 @@
 {"level":"info","message":"[mb:2525] mountebank v2.9.2 now taking orders - point your browser to http://localhost:2525/ for help","timestamp":"2026-01-23T15:16:30.419Z"}
+{"level":"info","message":"[mb:2525] GET /images/book.jpg","timestamp":"2026-01-23T15:16:32.633Z"}
+{"level":"info","message":"[mb:2525] GET /images/book.jpg","timestamp":"2026-01-23T15:16:33.956Z"}
+{"level":"info","message":"[mb:2525] GET /images/book.jpg","timestamp":"2026-01-23T15:16:35.436Z"}
+{"level":"info","message":"[mb:2525] POST /api/login","timestamp":"2026-01-23T15:16:40.892Z"}
+{"level":"info","message":"[mb:2525] GET /images/book.jpg","timestamp":"2026-01-23T15:16:53.935Z"}
+{"level":"info","message":"[mb:2525] GET /images/book.jpg","timestamp":"2026-01-23T15:16:54.673Z"}
+{"level":"info","message":"[mb:2525] GET /images/book.jpg","timestamp":"2026-01-23T15:16:55.666Z"}
+{"level":"info","message":"[mb:2525] GET /images/book.jpg","timestamp":"2026-01-23T15:16:58.001Z"}
+{"level":"info","message":"[mb:2525] POST /imposters","timestamp":"2026-01-23T15:18:29.880Z"}
+{"level":"info","message":"[http:4550] Open for business...","timestamp":"2026-01-23T15:18:29.886Z"}
+{"level":"info","message":"[http:4550] ::ffff:127.0.0.1:53431 => POST /api/login","timestamp":"2026-01-23T15:18:33.642Z"}
