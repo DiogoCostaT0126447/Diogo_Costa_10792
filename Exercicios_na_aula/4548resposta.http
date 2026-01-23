@@ -1,0 +1,6 @@
+POST http://localhost:4548/dados
+Content-Type: application/json
+
+{
+    "optionalField": true
+}

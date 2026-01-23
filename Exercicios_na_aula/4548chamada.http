@@ -1,0 +1,29 @@
+POST http://localhost:2525/imposters
+
+
+{
+  "port": 4548,
+  "protocol": "http",
+  "stubs": [{
+    "responses": [
+      { "is": { "statusCode": 200 ,"body": {"nome":"Diogo", "Tel":"928928928" }}}
+    ],
+    "predicates": [{
+      "and": [
+        {
+          "equals": {
+            "path": "/dados",
+            "method": "POST",
+            "headers": { "Content-Type": "application/json" }
+          }
+        },
+        {
+          "not": {
+            "contains": { "body": "requiredField" },
+            "caseSensitive": true
+          }
+        }
+      ]
+    }]
+  }]
+}
