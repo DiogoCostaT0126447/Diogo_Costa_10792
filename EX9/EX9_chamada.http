@@ -1,0 +1,7 @@
+POST http://localhost:4554/api/temperature
+Content-Type: application/json
+
+{
+  "sensor_id": 10,
+  "value": 25
+}
