@@ -1,0 +1,50 @@
+POST http://localhost:2525/imposters
+Content-Type: application/json
+
+{
+  "port": 4556,
+  "protocol": "http",
+  "stubs": [
+    {
+      "predicates": [
+        {
+          "equals": {
+            "method": "POST",
+            "path": "/api/tasks"
+          }
+        },
+        {
+          "equals": {
+            "headers": {
+              "Content-Type": "application/json"
+            }
+          }
+        },
+        {
+          "not": {
+            "equals": {
+              "body": {
+                "title": "duplicate"
+              }
+            }
+          }
+        }
+      ],
+      "responses": [
+        {
+          "is": {
+            "statusCode": 201,
+            "headers": {
+              "Content-Type": "application/json",
+              "Location": "/api/tasks/123"
+            },
+            "body": {
+              "id": 123,
+              "status": "created"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
