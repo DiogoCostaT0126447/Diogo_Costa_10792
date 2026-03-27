@@ -1,0 +1,8 @@
+POST http://localhost:4552/api/users
+Content-Type: application/json
+
+{
+  "name": "Costa",
+  "email": "novo@email.com",
+  "age": 30
+}

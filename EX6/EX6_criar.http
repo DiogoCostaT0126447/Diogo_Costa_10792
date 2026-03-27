@@ -2,7 +2,7 @@ POST http://localhost:2525/imposters
 Content-Type: application/json
 
 {
-  "port": 4550,
+  "port": 4551,
   "protocol": "http",
   "stubs": [
     {
@@ -10,7 +10,7 @@ Content-Type: application/json
         {
           "equals": {
             "method": "POST",
-            "path": "/api/login"
+            "path": "/api/users"
           }
         },
         {
@@ -19,17 +19,25 @@ Content-Type: application/json
               "Content-Type": "application/json"
             }
           }
+        },
+        {
+          "equals": {
+            "body": {
+              "email": "exists@example.com"
+            }
+          }
         }
       ],
       "responses": [
         {
           "is": {
-            "statusCode": 401,
+            "statusCode": 409,
             "headers": {
               "Content-Type": "application/json"
             },
             "body": {
-              "error": "invalid_credentials"
+              "error": "email_exists",
+              "message": "Email already exists"
             }
           }
         }
