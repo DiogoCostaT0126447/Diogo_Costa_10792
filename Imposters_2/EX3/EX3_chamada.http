@@ -1,0 +1,49 @@
+GET http://localhost:4564/api/reservas
+
+
+#POST http://localhost:4564/api/reservas
+#Content-Type: application/json
+#{
+#  "cliente": "João",
+#  "checkin": "2026-05-10",
+#  "checkout": "2026-05-12",
+#  "tipo_quarto": "standard"
+#}
+
+#POST http://localhost:4564/api/reservas
+#Content-Type: application/json
+#{
+#  "cliente": "Erro",
+#  "checkin": "2026-05-10",
+#  "checkout": "2026-05-05",
+#  "tipo_quarto": "standard"
+#}
+
+#POST http://localhost:4564/api/reservas
+#Content-Type: application/json
+#{
+#  "cliente": "Maria",
+#  "checkin": "2026-05-10",
+#  "checkout": "2026-05-12",
+#  "tipo_quarto": "suite"
+#}
+
+#PUT http://localhost:4564/api/reservas/1
+#Content-Type: application/json
+#{
+#  "tipo_quarto": "standard"
+#}
+
+#PUT http://localhost:4564/api/reservas/1
+#Content-Type: application/json
+#{
+#  "late_update": true
+#}
+
+#DELETE http://localhost:4564/api/reservas/1
+
+#DELETE http://localhost:4564/api/reservas/1
+#Content-Type: application/json
+#{
+#  "after_checkin": true
+#}

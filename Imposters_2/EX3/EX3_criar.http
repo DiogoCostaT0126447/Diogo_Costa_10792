@@ -1,0 +1,239 @@
+POST http://localhost:2525/imposters
+Content-Type: application/json
+
+{
+  "port": 4564,
+  "protocol": "http",
+  "stubs": [
+
+    {
+      "predicates": [
+        {
+          "equals": {
+            "method": "POST",
+            "path": "/api/reservas"
+          }
+        },
+        {
+          "contains": {
+            "body": "\"checkin\":\"2026-05-10\""
+          }
+        },
+        {
+          "contains": {
+            "body": "\"checkout\":\"2026-05-05\""
+          }
+        }
+      ],
+      "responses": [
+        {
+          "is": {
+            "statusCode": 400,
+            "body": {
+              "error": "Datas inválidas"
+            }
+          }
+        }
+      ]
+    },
+
+    
+    {
+      "predicates": [
+        {
+          "equals": {
+            "method": "POST",
+            "path": "/api/reservas"
+          }
+        },
+        {
+          "contains": {
+            "body": "\"tipo_quarto\":\"suite\""
+          }
+        }
+      ],
+      "responses": [
+        {
+          "is": {
+            "statusCode": 409,
+            "body": {
+              "error": "Sem disponibilidade"
+            }
+          }
+        }
+      ]
+    },
+
+    
+    {
+      "predicates": [
+        {
+          "equals": {
+            "method": "POST",
+            "path": "/api/reservas"
+          }
+        }
+      ],
+      "responses": [
+        {
+          "is": {
+            "statusCode": 201,
+            "headers": {
+              "Content-Type": "application/json",
+              "Location": "/api/reservas/1"
+            },
+            "body": {
+              "id": 1,
+              "status": "created"
+            }
+          }
+        }
+      ]
+    },
+
+   
+    {
+      "predicates": [
+        {
+          "equals": {
+            "method": "GET",
+            "path": "/api/reservas"
+          }
+        }
+      ],
+      "responses": [
+        {
+          "is": {
+            "statusCode": 200,
+            "body": [
+              {
+                "id": 1,
+                "cliente": "João",
+                "checkin": "2026-05-10",
+                "checkout": "2026-05-12",
+                "tipo_quarto": "standard"
+              }
+            ]
+          }
+        }
+      ]
+    },
+
+    
+    {
+      "predicates": [
+        {
+          "equals": {
+            "method": "PUT",
+            "path": "/api/reservas/1"
+          }
+        },
+        {
+          "contains": {
+            "body": "late_update"
+          }
+        }
+      ],
+      "responses": [
+        {
+          "is": {
+            "statusCode": 400,
+            "body": {
+              "error": "Alteração não permitida (menos de 24h)"
+            }
+          }
+        }
+      ]
+    },
+
+   
+    {
+      "predicates": [
+        {
+          "equals": {
+            "method": "PUT",
+            "path": "/api/reservas/1"
+          }
+        }
+      ],
+      "responses": [
+        {
+          "is": {
+            "statusCode": 200,
+            "body": {
+              "status": "updated"
+            }
+          }
+        }
+      ]
+    },
+
+ 
+    {
+      "predicates": [
+        {
+          "equals": {
+            "method": "DELETE",
+            "path": "/api/reservas/1"
+          }
+        },
+        {
+          "contains": {
+            "body": "after_checkin"
+          }
+        }
+      ],
+      "responses": [
+        {
+          "is": {
+            "statusCode": 400,
+            "body": {
+              "error": "Cancelamento não permitido"
+            }
+          }
+        }
+      ]
+    },
+
+    
+    {
+      "predicates": [
+        {
+          "equals": {
+            "method": "DELETE",
+            "path": "/api/reservas/1"
+          }
+        }
+      ],
+      "responses": [
+        {
+          "is": {
+            "statusCode": 204
+          }
+        }
+      ]
+    },
+
+    
+    {
+      "predicates": [
+        {
+          "equals": {
+            "method": "GET"
+          }
+        }
+      ],
+      "responses": [
+        {
+          "is": {
+            "statusCode": 404,
+            "body": {
+              "error": "not_found"
+            }
+          }
+        }
+      ]
+    }
+
+  ]
+}
