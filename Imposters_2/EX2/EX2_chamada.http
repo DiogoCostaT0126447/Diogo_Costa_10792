@@ -1,0 +1,27 @@
+#GET http://localhost:4563/api/produtos
+
+#GET http://localhost:4563/api/produtos/1
+
+#POST http://localhost:4563/api/produtos
+#Content-Type: application/json
+#{
+#  "nome": "Monitor",
+#  "preco": 150,
+#  "quantidade": 5
+#}
+
+#POST http://localhost:4563/api/produtos
+#Content-Type: application/json
+#{
+#  "nome": "Erro",
+#  "preco": 10,
+#  "quantidade": -5
+#}
+
+#PUT http://localhost:4563/api/produtos/1/stock
+#Content-Type: application/json
+#{
+#  "quantidade": 5
+#}
+
+#DELETE http://localhost:4563/api/produtos/1

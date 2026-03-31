@@ -1,0 +1,15 @@
+
+#GET http://localhost:4562/api/alunos
+
+#GET http://localhost:4562/api/alunos/1
+
+#POST http://localhost:4562/api/alunos
+#Content-Type: application/json
+#{
+#  "nome": "Carlos",
+#  "idade": 20,
+#  "curso": "PI"
+#}
+
+#DELETE http://localhost:4562/api/alunos/1
+#Authorization: Bearer admin
